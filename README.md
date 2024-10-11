@@ -106,9 +106,13 @@ aws s3 ls s3://flaws.cloud
 
 ### Note
 > This level does not require keys to be set up, however, since I already configured aws keys, I was able to access the files
-> You will  get an error if your aws keys are not configured, you need to add ```--no-sign-request``` to your command
+> You will  get an error if your aws keys are not configured
+> The intended solution should be to add ```--no-sign-request``` to your command
+>
+> ```aws s3 ls s3://flaws.cloud --no-sign-request```
 
-I went ahead and downloaded the secretfile, using this command, 
+
+I went ahead and downloaded the secretfile, using  ```cp``` command on the file name, 
 
 ```
 aws s3 cp s3://flaws.cloud/secret-dd02c7c.html --no-sign-request secret.html
