@@ -73,4 +73,14 @@ for i in $(cat ips.dig);do dig -x $i;done
 
 Now we know, all of them are pointing to the the same s3 bucket.
 
-To try and connect to
+We can try and connect to the site this website, hosted in s3 by doing
+
+```
+aws s3 ls s3://flaws.cloud
+```
+![image](https://github.com/user-attachments/assets/5b5d4dd2-3ec0-46b0-ae7c-10c2cc549c20)
+
+
+### Note
+> This level does not require keys to be set up, however, since I already configured aws keys, I was able to access the files
+> You will  get an error if your aws keys are not configured, you need to add ```--no-signin-request``` to your command 
