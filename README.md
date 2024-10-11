@@ -32,7 +32,7 @@ dig flaws.cloud
 ```
 ![image](https://github.com/user-attachments/assets/12bc6e7f-8ec4-4262-af01-9d9e4e9b9403)
 
-It would spit out different IP addresses, we can check them one by one however, like
+It would spit out different IP addresses, we can check them one by one,  like
 
 ```
 dig -x 52.92.133.211
@@ -46,18 +46,24 @@ I copy/pasted the dig results to a file and they should look like this
 
 ![image](https://github.com/user-attachments/assets/025df057-1006-4a09-b194-a4a0615f9031)
 
-Now, using awk, 
+
 ```
 cat flaws.cloud.dig | awk -F ' ' '{print $NF}'
 
 ```
+
 to spit out only the ip addresses, we can redirect the results to a file using the ```>``` redirector
+
 ```
 cat flaws.cloud.dig | awk -F ' ' '{print $NF}'>> ips
 
 ```
+To check if the IP addresses is saved correctly, we can view it first
 
-Now, to use dig in every line we can do
+![image](https://github.com/user-attachments/assets/0ec487af-b7d8-4115-9bca-2dde0572d9d6)
+
+
+Now, to use dig in every IP addresses we can do
 
 ```
 for i in $(cat ips.dig);do dig -x $i;done
