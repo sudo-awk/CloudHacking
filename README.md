@@ -11,10 +11,11 @@ And generate your access key, it will spit out an access key and secret access k
 
 ## Install aws cli 
 
-To install the aws in your machine, you can go the amazon aws install documentation, but if you are using kali you can also use this script, provided by official amazon documentation
+To install the aws in your machine, you can go the amazon aws install documentation, provided by official amazon documentation
 
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
+If you are using kali you can also use this copy and paste this script
 ```
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
@@ -137,4 +138,25 @@ Level 2 is at http://level2-c8b217a33fcf1f839f6f1f73a00a9ae7.flaws.cloud
 
 > If you dont have html2text, you can install them in kali using
 > ```sudo apt install html2text```
-Now we can proceed to level 2. 
+Now we can proceed to level 2.
+>
+
+# Level 2
+
+I typed in my terminal, and was able to access the bucket
+
+```
+┌──(aaron㉿kali)-[~/cloud-hacking/level2]
+└─$ aws s3 ls s3://level2-c8b217a33fcf1f839f6f1f73a00a9ae7.flaws.cloud       
+2017-02-26 21:02:15      80751 everyone.png
+2017-03-02 22:47:17       1433 hint1.html
+2017-02-26 21:04:39       1035 hint2.html
+2017-02-26 21:02:14       2786 index.html
+2017-02-26 21:02:14         26 robots.txt
+2017-02-26 21:02:15       1051 secret-e4443fc.html
+
+```
+
+### > I replaced the 'http' to 's3'
+> I was able to access the the s3 resource because my aws are configured
+> The intended solution should to learn how to configure aws keys and we already done that in our set up
