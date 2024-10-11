@@ -1,4 +1,4 @@
-# Intro-CloudHacking
+![image](https://github.com/user-attachments/assets/83869e3d-bf93-4ce7-87ee-4c0fc80f8918)# Intro-CloudHacking
 This is my notes to learn about cloud hacking, this is only introductory, and still there are a lot of things I need to learn
 
 
@@ -261,3 +261,34 @@ HEAD is now at f52ec03 first commit
 If we type ```ls``` again in our current terminal we will see a new file called ```access_key.txt```
 
 ![image](https://github.com/user-attachments/assets/45fa4909-6566-41d2-8ef2-e168815cb90e)
+
+To go back to the current commit you can use 
+
+```
+git checkout master
+```
+
+Also another trick we can do is to use ```git diff``` to easily check whats changed in each commits
+
+```
+git diff b64c8dcfa8a39af06521cf4cb7cdce5f0ca9e526 f52ec03b227ea6094b04e43f475fb0126edb5a61
+
+```
+
+
+![image](https://github.com/user-attachments/assets/1ec59992-3bfc-4403-aa4b-b7b3ce58d6b5)
+
+
+
+![image](https://github.com/user-attachments/assets/14a30b36-da87-402b-8133-88a45f22ae15)
+
+Now all we need is to use this key, I am going to create a aws profile using this key. Back to my machine I used 
+
+```
+aws configure --profile profilename
+```
+![image](https://github.com/user-attachments/assets/e88bf4a0-b3ca-4e01-bfc3-228cc0356304)
+
+Then a
+
+
