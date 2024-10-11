@@ -60,7 +60,7 @@ cat flaws.cloud.dig | awk -F ' ' '{print $NF}'>> ips
 ```
 To check if the IP addresses is saved correctly, we can view it first
 
-![image](https://github.com/user-attachments/assets/0ec487af-b7d8-4115-9bca-2dde0572d9d6)
+![image](https://github.com/user-attachments/assets/e529bab4-74fd-4341-a341-c796227cfb1d)
 
 
 Now, to use dig in every IP addresses we can do
