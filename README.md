@@ -1,4 +1,4 @@
-# Intro-CloudHacking
+![image](https://github.com/user-attachments/assets/f19b25a9-a83a-47b8-b57c-b50e36369885)# Intro-CloudHacking
 
 ## Create an Amazon Account and generate your access id and secret access
 
@@ -83,4 +83,36 @@ aws s3 ls s3://flaws.cloud
 
 ### Note
 > This level does not require keys to be set up, however, since I already configured aws keys, I was able to access the files
-> You will  get an error if your aws keys are not configured, you need to add ```--no-signin-request``` to your command 
+> You will  get an error if your aws keys are not configured, you need to add ```--no-sign-request``` to your command
+
+I went ahead and downloaded the secretfile, using this command, 
+
+```
+aws s3 cp s3://flaws.cloud/secret-dd02c7c.html --no-sign-request secret.html
+```
+> the `secret.html` would be the downloaded file name
+
+![image](https://github.com/user-attachments/assets/6269c66e-0264-492b-9746-93ce7c61e3a2)
+
+Then I opened it in my terminal using
+
+```
+                                                                                                                                                                 
+┌──(aaron㉿kali)-[~/cloud-hacking/level1]
+└─$ cat secret.html| html2text
+                      _____  _       ____  __    __  _____
+                     |     || |     /    ||  |__|  |/ ___/
+                     |   __|| |    |  o  ||  |  |  (   \_
+                     |  |_  | |___ |     ||  |  |  |\__  |
+                     |   _] |     ||  _  ||  `  '  |/  \ |
+                     |  |   |     ||  |  | \      / \    |
+                     |__|   |_____||__|__|  \_/\_/   \___|
+              ****** Congrats! You found the secret file! ******
+Level 2 is at http://level2-c8b217a33fcf1f839f6f1f73a00a9ae7.flaws.cloud
+                                                                              
+```
+![image](https://github.com/user-attachments/assets/1e42a11b-5730-4d6d-ae14-5f25b97f1aed)
+
+> If you dont have html2text, you can install them in kali using
+> ```sudo apt install html2text```
+Now we can proceed to level 2. 
