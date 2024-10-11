@@ -1,4 +1,6 @@
-![image](https://github.com/user-attachments/assets/f19b25a9-a83a-47b8-b57c-b50e36369885)# Intro-CloudHacking
+# Intro-CloudHacking
+This is my notes to learn about cloud hacking, this is only introductory, and still there are a lot of things I need to learn
+
 
 ## Create an Amazon Account and generate your access id and secret access
 
