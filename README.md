@@ -45,7 +45,7 @@ Shout out to the developers of this site, you are amazing
 Now lets, start hacking
 
 ## Level 1 
-
+url: http://flaws.cloud
 ![image](https://github.com/user-attachments/assets/480a4f26-646e-42ff-9732-86f4d22dc4aa)
 
 In my kali, we need to perform a reverse DNS lookup on the website, to do that I used dig 
@@ -141,8 +141,8 @@ Level 2 is at http://level2-c8b217a33fcf1f839f6f1f73a00a9ae7.flaws.cloud
 Now we can proceed to level 2.
 >
 
-# Level 2
-
+##  Level 2
+URL : http://level2-c8b217a33fcf1f839f6f1f73a00a9ae7.flaws.cloud
 I typed in my terminal, and was able to access the bucket
 
 ```
@@ -157,6 +157,38 @@ I typed in my terminal, and was able to access the bucket
 
 ```
 
-### > I replaced the 'http' to 's3'
+> I replaced the 'http' to 's3'
 > I was able to access the the s3 resource because my aws are configured
 > The intended solution should to learn how to configure aws keys and we already done that in our set up
+
+Now, we'll copy the secret again to our local machine using `cp` command
+
+```
+aws s3 cp s3://level2-c8b217a33fcf1f839f6f1f73a00a9ae7.flaws.cloud/secret-e4443fc.html secret.html
+
+```
+
+![image](https://github.com/user-attachments/assets/84e7d157-b3f9-492a-9558-2465070e381a)
+
+Then we open the file in our terminal again using
+
+```
+                                                                                                                                                                 
+┌──(aaron㉿kali)-[~/cloud-hacking/level2]
+└─$ cat secret.html| html2text
+                      _____  _       ____  __    __  _____
+                     |     || |     /    ||  |__|  |/ ___/
+                     |   __|| |    |  o  ||  |  |  (   \_
+                     |  |_  | |___ |     ||  |  |  |\__  |
+                     |   _] |     ||  _  ||  `  '  |/  \ |
+                     |  |   |     ||  |  | \      / \    |
+                     |__|   |_____||__|__|  \_/\_/   \___|
+              ****** Congrats! You found the secret file! ******
+Level 3 is at http://level3-9afd3927f195e10225021a578e6f78df.flaws.cloud
+                                                                            
+```
+
+![image](https://github.com/user-attachments/assets/84146a37-8e1c-4fc0-9c0c-513144d2881e)
+
+## Level 3
+url : http://level3-9afd3927f195e10225021a578e6f78df.flaws.cloud
