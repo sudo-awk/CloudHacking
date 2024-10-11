@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/83869e3d-bf93-4ce7-87ee-4c0fc80f8918)# Intro-CloudHacking
+# Intro-CloudHacking
 This is my notes to learn about cloud hacking, this is only introductory, and still there are a lot of things I need to learn
 
 
@@ -289,6 +289,6 @@ aws configure --profile profilename
 ```
 ![image](https://github.com/user-attachments/assets/e88bf4a0-b3ca-4e01-bfc3-228cc0356304)
 
-Then a
+Then 
 
 
