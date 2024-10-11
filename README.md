@@ -6,16 +6,22 @@ Once you have signup for an account, go to Security Settings
 ![image](https://github.com/user-attachments/assets/fc4e09cc-19d6-4b96-8bcb-675a03372618)
  And generate your access key, it will spit out an access key and secret access key which will be like a username and password
 
-## Install awscli in your machine
+Now that we have an account an aws cli, we can now proceed to test.
 
-I am currently using Kali, to install it to my machine
- 
+We are going to learn hacking using a game,  so go to 
+
 ```
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+http://flaws.cloud/
 ```
 
-You can also check the official amazon page for installation documentation 
+![image](https://github.com/user-attachments/assets/27e4ec27-430e-46ed-8dfc-7103ec76b24c)
 
-https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+Shout out to the developers of this site, you are amazing
+
+Now lets, start hacking
+
+![image](https://github.com/user-attachments/assets/480a4f26-646e-42ff-9732-86f4d22dc4aa)
+
+
+
