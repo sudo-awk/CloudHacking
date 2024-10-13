@@ -418,13 +418,6 @@ Then, we'll create a new ec2 instance, here are the settings of my ec2 instance,
 
 ![image](https://github.com/user-attachments/assets/0c46a907-396b-4862-aeca-83034e1dd0e7)
 
-One the instance has been launched, you should see this
-
-![image](https://github.com/user-attachments/assets/e0a970cf-7320-4fcb-bc7d-3662072dda79)
-
-We then check for our running instances and then wait until the status has been completed
-
-![image](https://github.com/user-attachments/assets/5e72d75c-88a4-46a0-9f6d-cd3894047eb7)
 
 I also enabled all connections to the ec2 instance and I used ubuntu as the default username
 
@@ -435,7 +428,7 @@ If everything is done correctly, we should be able to connect to our ec2 via ssh
 ![image](https://github.com/user-attachments/assets/77b71732-f5f2-4ca3-9c34-063239e9ebd3)
 
 
-Since this is a newly launched ec2 instance, it doesnt have anything on it yet, just enough files for it to run publicly, we can also list the mounted drives first to check drive names
+Since this is a newly launched ec2 instance, it doesnt have anything on it yet, just enough files for it to run, we can also list the mounted drives first to check drive names
 
 ```
 lsblk
