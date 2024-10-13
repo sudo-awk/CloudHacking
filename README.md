@@ -287,8 +287,117 @@ Now all we need is to use this key, I am going to create a aws profile using thi
 ```
 aws configure --profile profilename
 ```
+
 ![image](https://github.com/user-attachments/assets/e88bf4a0-b3ca-4e01-bfc3-228cc0356304)
 
-Then 
+To list all your aws profile, we can use 
+
+```
+aws configure list-profiles
+```
+
+![image](https://github.com/user-attachments/assets/4368e708-029d-41f5-928d-b04eb6b6166c)
+
+Now we can list available buckets for this account using the command below
+
+```
+aws s3api list-buckets --profile level3 
+```
+
+![image](https://github.com/user-attachments/assets/ae62338e-8da9-4ee7-b567-4fa76ef825ab)
+
+We can also see all the other urls to all hidden s3 services. But we dont want to finish the game by that, we need to learn more. 
+
+## Level 4
+URL: http://level4-1156739cfb264ced6de514971a4bef68.flaws.cloud/
+
+![image](https://github.com/user-attachments/assets/f6f21622-dfe4-4346-9012-09f10da62bb6)
+
+If we go the link provided in in the instructions, we are asked for a credential, we dont have any credentials yet aside from the access key and secret key we got from the previous level.
+
+![image](https://github.com/user-attachments/assets/681623bc-8168-4e8c-aa3f-98e86d166460)
+
+Addtionally, it was said that a snapshot was made before the server. 
+
+I honestly, dont have an idea how to go about this so I clicked on the hint and we got this
+
+![image](https://github.com/user-attachments/assets/1582dfb2-b53a-44f9-94cc-ec7d2296dc47)
+
+So I went back to my machine and typed the command 
+
+```
+aws --profile level3 sts get-caller-identity
+```
+
+And we get the result below
+
+![image](https://github.com/user-attachments/assets/2b1bc529-0ced-445c-b858-2640e4d86078)
+
+We now have the accountid, we can follow the instructions on the hint again
+
+    "Account": "975426262029",
+
+
+![image](https://github.com/user-attachments/assets/ec1c1c31-adc4-401e-b01a-64f63fc85196)
+
+I've tried to command in my end but it's giving me error to provide region
+
+![image](https://github.com/user-attachments/assets/94e3384b-5450-41cc-9bff-ffc2d41995bf)
+
+To fix the issue, I think you can put any region. But I want to put us-west-2 as was said in the hint. I will also opt out the accountid.
+
+![image](https://github.com/user-attachments/assets/6d07a77e-bac5-48c6-9421-73e0a45fbb61)
+
+Again, I dont have any idea how to solve this, so I just play around to see what we can find. Now we try to provde our accountid 
+
+![image](https://github.com/user-attachments/assets/a7497c52-c678-4939-a898-7f2804eb9147)
+
+I also tried to prompt using different us regions like east,north and south just to see what will happen, no results though as seen below
+
+![image](https://github.com/user-attachments/assets/99bb0dc5-1d11-41cf-bdd0-ae490a0850e8)
+
+It said we need to take a look at the snapshot
+
+![image](https://github.com/user-attachments/assets/9b596c3a-a989-442e-9246-e1036a6bbeff)
+
+```
+┌──(aaron㉿kali)-[~/cloud-hacking/level3]
+└─$ aws --profile level3 ec2 describe-snapshots --owner-id 975426262029 --region us-west-2
+{
+    "Snapshots": [
+        {
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "flaws backup 2017.02.27"
+                }
+            ],
+            "StorageTier": "standard",
+            "SnapshotId": "snap-0b49342abd1bdcb89",
+            "VolumeId": "vol-04f1c039bc13ea950",
+            "State": "completed",
+            "StartTime": "2017-02-28T01:35:12+00:00",
+            "Progress": "100%",
+            "OwnerId": "975426262029",
+            "Description": "",
+            "VolumeSize": 8,
+            "Encrypted": false
+        }
+    ]
+}
+        
+```
+
+I dont know how to mount an ec2 snapshot instance yet, let's go for more hints
+
+![image](https://github.com/user-attachments/assets/35aef6c7-0bf8-41d8-9986-4e43b5c081c9)
+
+We are provided with an aws script. 
+
+```
+aws --profile YOUR_ACCOUNT ec2 create-volume --availability-zone us-west-2a --region us-west-2  --snapshot-id  snap-0b49342abd1bdcb89
+```
+
+Since we already have access keys , accountid and snapshot we'll go ahead and try this in our end
 
 
