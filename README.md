@@ -400,4 +400,7 @@ aws --profile YOUR_ACCOUNT ec2 create-volume --availability-zone us-west-2a --re
 
 Since we already have access keys , accountid and snapshot we'll go ahead and try this in our end
 
+![image](https://github.com/user-attachments/assets/6f401125-8c1a-40ef-a816-e9841700edad)
+
+
 
