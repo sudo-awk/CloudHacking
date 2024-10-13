@@ -402,5 +402,94 @@ Since we already have access keys , accountid and snapshot we'll go ahead and tr
 
 ![image](https://github.com/user-attachments/assets/6f401125-8c1a-40ef-a816-e9841700edad)
 
+We need to use our own aws profile,
+
+![image](https://github.com/user-attachments/assets/729e243f-23f4-4fb8-8be0-a04eb3686488)
+
+Then we will log in to our own aws account via browser and check the volumes if successfully created under our account 
+
+![image](https://github.com/user-attachments/assets/e5365ca9-ad92-464a-8b4e-cc3e3be0627c)
+
+> If you dont see your volume, make sure that you are under the preferred region which is us-west-2
+> ![image](https://github.com/user-attachments/assets/064a6887-b2da-4d14-a90b-4379b99588dc)
+>
+
+Then, we'll create a new ec2 instance, here are the settings of my ec2 instance, make sure that you change your subnet to the same as snapshot us-west-2a and create your pair
+
+![image](https://github.com/user-attachments/assets/0c46a907-396b-4862-aeca-83034e1dd0e7)
+
+One the instance has been launched, you should see this
+
+![image](https://github.com/user-attachments/assets/e0a970cf-7320-4fcb-bc7d-3662072dda79)
+
+We then check for our running instances and then wait until the status has been completed
+
+![image](https://github.com/user-attachments/assets/5e72d75c-88a4-46a0-9f6d-cd3894047eb7)
+
+I also enabled all connections to the ec2 instance and I used ubuntu as the default username
+
+![image](https://github.com/user-attachments/assets/0f68436c-35ad-4845-bad2-7787f60eb3a2)
+
+If everything is done correctly, we should be able to connect to our ec2 via ssh 
+
+![image](https://github.com/user-attachments/assets/77b71732-f5f2-4ca3-9c34-063239e9ebd3)
 
 
+Since this is a newly launched ec2 instance, it doesnt have anything on it yet, just enough files for it to run publicly, we can also list the mounted drives first to check drive names
+
+```
+lsblk
+```
+
+![image](https://github.com/user-attachments/assets/8ec5b603-d933-4a04-b41f-0c709be3a954)
+
+Now that we know the drives, we can now attach the snapshot volume we found earlier, to do that go back to our aws browser select your volume and then click `actions` and then `attach`
+
+![image](https://github.com/user-attachments/assets/f9d57e58-3f32-4b50-9f19-a5a5de07d537)
+
+After attaching, we should have 2 volumes listed 
+
+![image](https://github.com/user-attachments/assets/ac892583-d6e7-4f14-8e93-8a0d6c049745)
+
+and if we list all drives again we should see that another drive has been listed
+
+![image](https://github.com/user-attachments/assets/52823b0b-3583-4e06-985a-570e4ec98628)
+
+
+Now we will need to mount this volume using `mount` command, first we will create the mounting point 
+```
+ubuntu@ip-172-31-45-255:~$ sudo mkdir /mnt/new_volume
+
+```
+Then we will mount the volume
+```
+ubuntu@ip-172-31-45-255:~$ sudo mount /dev/xvdbq1 /mnt/new_volume
+
+```
+
+And then if we list all the files, we will see that the snapshot has been loaded  in the drive
+
+![image](https://github.com/user-attachments/assets/35518900-44ea-434f-af4b-f1e32a2b8de1)
+
+We can now do more enumeration and see what we can find, and checking the home folder we can see what looks like a username and password
+
+![image](https://github.com/user-attachments/assets/f9ec1e9f-3cbf-49f6-befd-e1b5d1a672e8)
+```
+ubuntu@ip-172-31-45-255:/mnt/new_volume$ cat home/ubuntu/setupNginx.sh 
+htpasswd -b /etc/nginx/.htpasswd flaws nCP8xigdjpjyiXgJ7nJu7rw5Ro68iE8M
+
+```
+
+We'll now try and log in using the credentials and we have solved the level.
+
+![image](https://github.com/user-attachments/assets/1626f12b-3af2-4359-84b6-cb1c7f8b75ed)
+
+
+
+![image](https://github.com/user-attachments/assets/b430a0f2-be2b-4e3e-910d-74f5fd0d1606)
+
+Yey, congrats!
+
+## Level 5
+
+![image](https://github.com/user-attachments/assets/02d5d9d8-6d2b-43fe-91db-215dce2b1e6b)
