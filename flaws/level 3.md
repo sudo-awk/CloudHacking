@@ -1,7 +1,7 @@
 ## Level 3
 url : http://level3-9afd3927f195e10225021a578e6f78df.flaws.cloud
 
-So, this this time, we successfully connected to the bucket, however
+So, this this time, we successfully connected to the bucket, however dont see any secrets that can help us to go to level 4
 
 ```
 aws s3 ls s3://level3-9afd3927f195e10225021a578e6f78df.flaws.cloud
