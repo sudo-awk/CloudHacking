@@ -19,22 +19,22 @@ If we  play around with it, the `proxy` redirects the us to the a differet locat
 
 Then we will use this again this time using the target proxy
 
-![image](https://github.com/user-attachments/assets/a227a671-cd6c-4968-b40f-e8a54b6bfed7)
-
 Notice that the IP address of the target is the one that showed up, this is like a server side request forgery (SSRF) we can issue make commands via the server
 
 ![image](https://github.com/user-attachments/assets/f6d0d92f-06c6-4339-972d-f6e4c5f68a35)
 
-With this vulnerability in mind, Aws,Gcp and azure uses the ip address 169.254.169.254 as their metadata intance address and should only be accessible using the server.
+With this vulnerability in mind, Aws,Gcp and azure uses the ip address 169.254.169.254 (Magic IP) as their metadata intance address and should only be accessible using the server.
 
 ![image](https://github.com/user-attachments/assets/c9b93321-a6a4-455e-aa97-649e59e5eb64)
 
 You can read more about the instances here if you want 
+
+
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
 
 Since we have access to their server, if they did not disable the ipv4 access, we can get request for the intance using this server.
 
-After trying the said IP we are able to list the instance metadata 
+After trying the said Magic IP we are able to list the instance metadata 
 
 `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/`
 
