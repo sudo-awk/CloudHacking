@@ -4,9 +4,9 @@ url: http://level5-d2891f604d2061b6977c2481b0c8333e.flaws.cloud/243f422c/
 ![image](https://github.com/user-attachments/assets/ff87639d-72f3-41d7-9a2d-ec12ebd99fc8)
 </kbd>
 Lab says that the level 6 link can be accessed when we used a proxy, we checked the level 6 link first and sure enough we get access denied
-
+<kbd>
 ![image](https://github.com/user-attachments/assets/5f8ff2ea-d531-4221-9ca1-d53b90bd027f)
-
+</kbd>
 If you notice all three links have a directory `proxy` in it
 
 >- http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/flaws.cloud/
