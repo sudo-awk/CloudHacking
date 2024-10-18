@@ -38,12 +38,12 @@ After trying the said Magic IP we are able to list the instance metadata
 
 `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/`
 
-
+<kbd>
 ![image](https://github.com/user-attachments/assets/aff90250-a6c4-4639-90ff-1be8e50d520b)
-
+</kbd>
 And enumerating this vulnerability we found more access to the target 
 
-
+<kbd>
 ![image](https://github.com/user-attachments/assets/270e179b-b097-449b-9aad-6a71735f7c70)
-
+</kbd>
 
