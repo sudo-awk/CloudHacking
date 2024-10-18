@@ -37,9 +37,6 @@ Since we have access to their server, if they did not disable the ipv4 access, w
 After trying the said Magic IP we are able to list the instance metadata 
 
 `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/`
-lll
 
 
-<kbd>
-<img src ![image](https://github.com/user-attachments/assets/b74ecb54-5db8-4383-9266-9b41e5e6b3b3) />
-</kbd>
+
