@@ -1,8 +1,8 @@
 ## Level 5
 url: http://level5-d2891f604d2061b6977c2481b0c8333e.flaws.cloud/243f422c/
-
+<kbd>
 ![image](https://github.com/user-attachments/assets/ff87639d-72f3-41d7-9a2d-ec12ebd99fc8)
-
+</kbd>
 Lab says that the level 6 link can be accessed when we used a proxy, we checked the level 6 link first and sure enough we get access denied
 
 ![image](https://github.com/user-attachments/assets/5f8ff2ea-d531-4221-9ca1-d53b90bd027f)
@@ -38,8 +38,9 @@ After trying the said Magic IP we are able to list the instance metadata
 
 `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/`
 
+<kbd>
 ![image](https://github.com/user-attachments/assets/aff90250-a6c4-4639-90ff-1be8e50d520b)
-
+</kbd>
 And enumerating this vulnerability we found more access to the target 
 
 
