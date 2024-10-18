@@ -14,19 +14,19 @@ If you notice all three links have a directory `proxy` in it
 >- http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/neverssl.com/
 >
 If we  play around with it, the `proxy` redirects us to the a different location, to confirm, notice the results of icanhazip.com it results to my ip, 
-
+<kbd>
 ![image](https://github.com/user-attachments/assets/bcb95ce7-c823-4484-9828-6e3b5149b34f)
-
+</kbd>
 Then we will use this the icanhazip again this time using the our target. 
 
 Notice that the IP address of the target is the one that showed up, this is like a server side request forgery (SSRF) we can issue make commands via the server
-
+<kbd>
 ![image](https://github.com/user-attachments/assets/f6d0d92f-06c6-4339-972d-f6e4c5f68a35)
-
+</kbd>
 With this vulnerability in mind, Aws,Gcp and azure uses the ip address 169.254.169.254 (Magic IP) as their metadata intance address and should only be accessible using the server.
-
+<kbd>
 ![image](https://github.com/user-attachments/assets/c9b93321-a6a4-455e-aa97-649e59e5eb64)
-
+</kbd>
 You can read more about the instances here if you want 
 
 
@@ -41,9 +41,10 @@ After trying the said Magic IP we are able to list the instance metadata
 <kbd>
 ![image](https://github.com/user-attachments/assets/aff90250-a6c4-4639-90ff-1be8e50d520b)
 </kbd>
+
 And enumerating this vulnerability we found more access to the target 
 
-
+<kbd>
 ![image](https://github.com/user-attachments/assets/270e179b-b097-449b-9aad-6a71735f7c70)
-
+</kbd>
 
