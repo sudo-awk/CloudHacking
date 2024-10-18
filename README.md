@@ -34,7 +34,3 @@ Then paste your keys
 
 
 Yey, congrats!
-
-## Level 5
-
-![image](https://github.com/user-attachments/assets/02d5d9d8-6d2b-43fe-91db-215dce2b1e6b)
