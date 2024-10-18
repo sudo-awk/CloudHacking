@@ -40,8 +40,8 @@ After trying the said Magic IP we are able to list the instance metadata
 
 <kbd>
 ![image](https://github.com/user-attachments/assets/b74ecb54-5db8-4383-9266-9b41e5e6b3b3)
-
 </kbd>
+
 And enumerating this vulnerability we found more access to the target 
 
 <kbd>
