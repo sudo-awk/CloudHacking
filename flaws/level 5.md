@@ -38,5 +38,23 @@ After trying the said Magic IP we are able to list the instance metadata
 
 `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/`
 
+I also transitioned to curl for easier enumeration I can just press the up arrow in my keyboard and then type there faster, and while enumerating I found this access keys
 
+<kbd>
+![image](https://github.com/user-attachments/assets/f859aeec-035c-429d-872c-3bcfa8290d1b)
+</kbd>
+
+We will use this access key, going back to my terminal and to set up a new profile, I used the comand below
+
+```
+┌──(aaron㉿kali)-[~/flaws/level6]
+└─$ aws configure --profile level5
+AWS Access Key ID [None]: ASIA6GG7PSQG3JI4EYHC
+AWS Secret Access Key [None]: 2pba6UlK1TqpMeW6H9/HqpJzuOKf4ucQuo/cF8yD
+Default region name [None]: 
+Default output format [None]: 
+
+```
+
+<kbd>![image](https://github.com/user-attachments/assets/aaccc20d-af60-4434-b1c5-5a6efa867260)</kbd>
 
