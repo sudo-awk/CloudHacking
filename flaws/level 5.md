@@ -42,10 +42,13 @@ After trying the said Magic IP we are able to list the instance metadata
 
 `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/`
 
-I also transitioned to curl for easier enumeration I can just press the up arrow in my keyboard and then type there faster, and while enumerating I found this access keys
-<kbd>![image](https://github.com/user-attachments/assets/23e7389a-0bce-42b8-bfab-6d05a1861e51)</kbd>
+<kbd>![image](https://github.com/user-attachments/assets/f6929e40-009c-4352-b315-4e0ed1b62c07)</kbd>
 
-> - I woudn't recommend doing it in curl, because some character encoding is different when you access the keys from there, and I spent some time troubleshooting the issue
+And further enumerating the meta-data instance, we get the access keys, secrets that we can use to further escalate our access4
+
+![image](https://github.com/user-attachments/assets/08331f2d-131c-4650-9bd6-63312c27a548)
+
+> - I woudn't recommend doing this  in curl, because some character encoding is different in my stdout when i requested the keys from there, and I spent some time troubleshooting the issue
 
 
 We can use this key to check what access we have, we will create another profile for this access, I used the comand below
@@ -60,7 +63,7 @@ Default output format [None]:
 
 ```
 
-However, to solve the level, we need to add another variable to our profile which is the aws_session_token variable, we add that by going in directly to the aws keys file location, you can use any editor you want
+However, to solve the level, we need to add another variable to our newly created aws profile which is the aws_session_token variable, we can add that by going in directly to the aws keys file location, you can use any editor you want
 ```
 ┌──(aaron㉿kali)-[~/flaws/level6]         
 └─$ vim ~/.aws/credentials
@@ -72,12 +75,17 @@ However, to solve the level, we need to add another variable to our profile whic
 ```
 <kbd>![image](https://github.com/user-attachments/assets/4c847d7d-889c-4289-a198-b80cab2bc5f5)</kbd>
 
-And if we try to list the s3, we can now see the hidden directory, we can conclude that it is directory because of the `/` at the end of the name
+I also reset the shell, because I was getting invalid request and it fixed the problem
 
+```
+source ~/.zshrc
+```
+
+And if we try to list the s3, we can now see the hidden directory, we can conclude that it is directory because of the `/` at the end of the name
 
 <kbd>![image](https://github.com/user-attachments/assets/3b66b6d9-7eaf-4827-97d6-3d1169191587)</kbd>
 
-And if we list the directories we can see this
+ We list the directories we can see this
 
 ![image](https://github.com/user-attachments/assets/3b552212-ba9e-4aca-bc69-630b88b9ced4)
 
