@@ -12,11 +12,15 @@ If you notice all three links have a directory `proxy` in it
 >- http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/flaws.cloud/
 >- http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/summitroute.com/blog/feed.xml
 >- http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/neverssl.com/
->
-If we  play around with it, the `proxy` redirects us to the a different location, to confirm, notice the results of icanhazip.com it results to my ip, 
+
+If we  play around with it, the `proxy` redirects us to the a different location, to confirm,
+notice the results of icanhazip.com it results to my ip, 
+
 <kbd>
 ![image](https://github.com/user-attachments/assets/bcb95ce7-c823-4484-9828-6e3b5149b34f)
 </kbd>
+
+
 Then we will use this the icanhazip again this time using the our target. 
 
 Notice that the IP address of the target is the one that showed up, this is like a server side request forgery (SSRF) we can issue make commands via the server
