@@ -73,5 +73,13 @@ And if we try to list the s3, we can now see the hidden directory, we can conclu
 
 <kbd>![image](https://github.com/user-attachments/assets/3b66b6d9-7eaf-4827-97d6-3d1169191587)</kbd>
 
-A
+And if we list the directories we can see this
+
+![image](https://github.com/user-attachments/assets/3b552212-ba9e-4aca-bc69-630b88b9ced4)
+
+All we need to do now is to render the hidden directory in the browser and we can go ahead and proceed to the final challenge
+
+
+![image](https://github.com/user-attachments/assets/bfb64361-52c5-4ef0-8dfb-30b4577b21a5)
+
 
