@@ -5,6 +5,10 @@ url: `http://level6-cc4c404a8a8b876167f5e70a7d8c9880.flaws.cloud/ddcc78ff/`
 
 This time we are going to find policies and access attached to the given keys, also it said the there is SecurityAudit policy attached to these keys.
 
+>- The **SecurityAudit** group can get a high level overview of the resources in an AWS account, but it's also useful for looking at IAM policies. 
+>
+>
+
 ```
 Access key ID: AKIAJFQ6E7BY57Q3OBGA
 Secret: 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
@@ -21,7 +25,7 @@ aws configure list-profiles
 ```
 <kbd>![image](https://github.com/user-attachments/assets/8d7fc921-b57c-4db9-97ac-1a3e9b30cfe1)</kbd>
 
-And then we can start enumerating this access using the `get-user` command under the `iam` module of aws
+First, find out who you are or this is equivalent to `whoami`
 
 ```
 aws iam get-user --profile level6
@@ -59,7 +63,7 @@ We can enumerate this policy using `aws iam get-policy` to find the versionid, a
 
 <kbd>![image](https://github.com/user-attachments/assets/8df2443b-6c80-47ce-b18a-679ea20f356d)</kbd>
 
-Now that you have the ARN and the version id, we can now request what the actual policy is by using the `aws get-policy-version` we'll provide it with `policy-arn` and `version-id` we found earlier. 
+Now that we have the `ARN` and the `version id`, we can now request what the actual policy is by using the `aws get-policy-version` we'll provide it with `policy-arn` and `version-id` we found earlier. 
 
 ```
 aws iam get-policy-version  --policy-arn arn:aws:iam::975426262029:policy/list_apigateways --version-id v4 --profile level6 
@@ -72,7 +76,7 @@ This tells us we can call "apigateway:GET" on "arn:aws:apigateway:us-west-2::/re
 
 Since the `SecurityAudit policy` lets us see some things about lambdas: 
 
-To check this we can issue 
+To check this we can issue `aws lambda list-functions`
 ```
 
 └─$ aws lambda list-functions --region us-west-2 --profile level6
