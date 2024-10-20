@@ -57,13 +57,13 @@ Using the username, this will allow us to request for any attached policies that
 ```
 <kbd>![image](https://github.com/user-attachments/assets/3e67ace5-2786-4bc4-8ec1-ad9d08111210)</kbd>
 
-Great, we found another security policy called `list_apigateways`, 
+Great, we found another security policy called `list_apigateways`, to get more information about this policy, we first need to find it's `versionid`
 
-We can enumerate this policy using `aws iam get-policy` to find the `versionid`
+To find the `versionid` we are going to use another `aws iam get-policy` and we'll supply it with `policyarn` we found earlier.
 
 <kbd>![image](https://github.com/user-attachments/assets/8df2443b-6c80-47ce-b18a-679ea20f356d)</kbd>
 
-Now that we have the `ARN` and the `version id`, we can now request what the actual policy is by using the `aws get-policy-version` 
+Now that we have the `policy-arn` and the `versionid`, we can now procced to list what the actual policy is by using the `aws get-policy-version` 
 
 We'll provide it with `policy-arn` and `version-id` we found earlier. 
 
@@ -79,6 +79,8 @@ This tells us we can call "apigateway:GET" on "arn:aws:apigateway:us-west-2::/re
 Since the `SecurityAudit policy` lets us see some things about lambdas: 
 
 To check this we can issue `aws lambda list-functions`
+
+
 ```
 
 └─$ aws lambda list-functions --region us-west-2 --profile level6
@@ -97,7 +99,7 @@ To check this we can issue `aws lambda list-functions`
 
 ```
 
-So we have a function name called `Level6` , using this `function name`, we can now retrieve `resource` name. 
+So we have a `FunctionName` called `Level6` , using this `FunctionName`, we can use this retrieve `rest-api-id` name using the `aws lambda get-policy`
 
 ```
 ┌──(aaron㉿kali)-[~/flaws/level6]
@@ -134,7 +136,7 @@ That "s33ppypa75" is a rest-api-id, which we can then use to find the resource n
 
 
 ```
-We can see from the results the  `"stageName": "Prod",` which is great, meaning they are alive and in production. 
+We can see from the results the  `"stageName": "Prod",` this is the resouce that we need to get the the hidden cloud resource. 
 
 >- **Lambda** functions in aws are called using that `rest-api-id`, `stage name`, `region`, and `resource`.
 >
