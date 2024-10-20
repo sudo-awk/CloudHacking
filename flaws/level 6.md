@@ -14,26 +14,26 @@ Lets proceed and add this new access to our profile using `aws configure` comman
 
 <kbd>![image](https://github.com/user-attachments/assets/24a8ba8e-0178-48f1-a2a6-38d871464394)</kbd>
 
-And if we want to check our listed profiles we can also use 
+We can check our listed profiles we can use 
 
 ```
 aws configure list-profiles
 ```
 <kbd>![image](https://github.com/user-attachments/assets/8d7fc921-b57c-4db9-97ac-1a3e9b30cfe1)</kbd>
 
-And then we will enumerate using the `get-user` command under the `iam` module of aws
+And then we can start enumerating this access using the `get-user` command under the `iam` module of aws
 
 ```
 aws iam get-user --profile level6
 ```
 <kbd>![image](https://github.com/user-attachments/assets/ae2c5ebc-488c-4742-a861-e533eda16b2c)</kbd>
 
-we'll take note of the username
+we'll take note of the username, 
 ```
  "UserName": "Level6"
 ```
 
-And we'll find policies attached to it using `list-attached-user-policies`
+Using the username, this will allow us to request for any attached policies that it may have access to, 
 
 ```
 └─$ aws iam list-attached-user-policies --user-name level6 --profile level6 
@@ -53,22 +53,22 @@ And we'll find policies attached to it using `list-attached-user-policies`
 ```
 <kbd>![image](https://github.com/user-attachments/assets/3e67ace5-2786-4bc4-8ec1-ad9d08111210)</kbd>
 
+Great, we found another security policy called `list_apigateways`, 
 
-we'll take the `PolicyArn` of the list_apigateways, to find the versionid, and as seen `v4` is our version
+We can enumerate this policy using `aws iam get-policy` to find the versionid, and as seen `v4` is our version
 
 <kbd>![image](https://github.com/user-attachments/assets/8df2443b-6c80-47ce-b18a-679ea20f356d)</kbd>
 
-
-Now that you have the ARN and the version id, you can see what the actual policy is: 
+Now that you have the ARN and the version id, we can now request what the actual policy is by using the `aws get-policy-version` we'll provide it with `policy-arn` and `version-id` we found earlier. 
 
 ```
- aws iam get-policy-version  --policy-arn arn:aws:iam::975426262029:policy/list_apigateways --version-id v4 --profile level6 
+aws iam get-policy-version  --policy-arn arn:aws:iam::975426262029:policy/list_apigateways --version-id v4 --profile level6 
 ```
 
 <kbd>![image](https://github.com/user-attachments/assets/a3c18607-9b7a-4c15-8f0e-e79779f7a75e)</kbd>
 
 
-This tells us using this policy we can call "apigateway:GET" on "arn:aws:apigateway:us-west-2::/restapis/*" 
+This tells us we can call "apigateway:GET" on "arn:aws:apigateway:us-west-2::/restapis/*" 
 
 Since the `SecurityAudit policy` lets us see some things about lambdas: 
 
