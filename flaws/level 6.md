@@ -59,7 +59,7 @@ Using the username, this will allow us to request for any attached policies that
 
 Great, we found another security policy called `list_apigateways`, to get more information about this policy, we first need to find it's `versionid`
 
-To find the `versionid` we are going to use another `aws iam get-policy` and we'll supply it with `policyarn` we found earlier.
+To find the `versionid` we are going to use the command `aws iam get-policy` and we'll supply it with `policy-arn` we found earlier.
 
 <kbd>![image](https://github.com/user-attachments/assets/8df2443b-6c80-47ce-b18a-679ea20f356d)</kbd>
 
@@ -68,17 +68,16 @@ Now that we have the `policy-arn` and the `versionid`, we can now procced to lis
 We'll provide it with `policy-arn` and `version-id` we found earlier. 
 
 ```
-aws iam get-policy-version  --policy-arn arn:aws:iam::975426262029:policy/list_apigateways --version-id v4 --profile level6 
+aws iam get-policy-version --policy-arn arn:aws:iam::975426262029:policy/list_apigateways --version-id v4 --profile level6 
 ```
 
 <kbd>![image](https://github.com/user-attachments/assets/a3c18607-9b7a-4c15-8f0e-e79779f7a75e)</kbd>
-
 
 This tells us we can call "apigateway:GET" on "arn:aws:apigateway:us-west-2::/restapis/*" 
 
 Since the `SecurityAudit policy` lets us see some things about lambdas: 
 
-To check this we can issue `aws lambda list-functions`
+We can check this using the command `aws lambda list-functions`
 
 
 ```
@@ -138,7 +137,7 @@ That "s33ppypa75" is a rest-api-id, which we can then use to find the resource n
 ```
 We can see from the results the  `"stageName": "Prod",` this is the resouce that we need to get the the hidden cloud resource. 
 
->- **Lambda** functions in aws are called using that `rest-api-id`, `stage name`, `region`, and `resource`.
+>- **Lambda** functions in aws are called using that **`rest-api-id**`, `**stage name**`, `**region**`, and `**resource**`.
 >
 >
 
@@ -146,12 +145,11 @@ We can see from the results the  `"stageName": "Prod",` this is the resouce that
 >- `rest-api-id`  = s33ppypa75 (We got  from  `aws lambda get-policy` command )
 >- `stage name` = execute-api (We got from  `aws lambda get-policy` command )
 >- `region` = us-west-2 
->- resource = Prod/level6  (from `aws apigateway get-stages` )
+>- `resource` = Prod/level6  (from `aws apigateway get-stages` )
  
-If we combine them all together we will have ` https://s33ppypa75.execute-api.us-west-2.amazonaws.com/Prod/level6` 
+If we combine them all together we will have ` https://s33ppypa75.execute-api.us-west-2.amazonaws.com/Prod/level6` which is the hidden aws resouce that we have to discover. 
 
-
-Then we we go to the url, this is what we see
+If we now check the the url,
 
 <kbd>![image](https://github.com/user-attachments/assets/b855e61e-de68-4121-9f6b-170b3d3b5238)</kbd>
 
