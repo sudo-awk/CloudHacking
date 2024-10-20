@@ -93,31 +93,12 @@ To check this we can issue `aws lambda list-functions`
             "CodeSize": 282,
             "Description": "A starter AWS Lambda function.",
             "Timeout": 3,
-            "MemorySize": 128,
-            "LastModified": "2017-02-27T00:24:36.054+0000",
-            "CodeSha256": "2iEjBytFbH91PXEMO5R/B9DqOgZ7OG/lqoBNZh5JyFw=",
-            "Version": "$LATEST",
-            "TracingConfig": {
-                "Mode": "PassThrough"
-            },
-            "RevisionId": "d45cc6d9-f172-4634-8d19-39a20951d979",
-            "PackageType": "Zip",
-            "Architectures": [
-                "x86_64"
-            ],
-            "EphemeralStorage": {
-                "Size": 512
-            },
-            "SnapStart": {
 :
 
 ```
 
-So we have a function name called `Level6` 
+So we have a function name called `Level6` , using this `function name` we got we can use this to retrieve `resource` name. 
 
-<kbd>![image](https://github.com/user-attachments/assets/a67289e7-d302-49af-a446-994881066d4a)</kbd>
-
-To get more infromation about the `Level6` function we can use the  lambda's `get-policy` function
 ```
 ┌──(aaron㉿kali)-[~/flaws/level6]
 └─$ aws lambda get-policy --function-name Level6 --region us-west-2 --profile level6
@@ -127,6 +108,10 @@ To get more infromation about the `Level6` function we can use the  lambda's `ge
 }
          
 ```
+
+<kbd>![image](https://github.com/user-attachments/assets/a67289e7-d302-49af-a446-994881066d4a)</kbd>
+
+
 <kbd>![image](https://github.com/user-attachments/assets/dbd4eaa1-7c16-468c-a0e0-5491829f783b)</kbd>
 
 This tells us we have the ability to execute `arn:aws:execute-api:us-west-2:975426262029:s33ppypa75/*/GET/level6\` 
