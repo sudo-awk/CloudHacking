@@ -1,4 +1,4 @@
-# Level 6
+![image](https://github.com/user-attachments/assets/53ab3c26-0ced-47bc-9b21-6aeb652a968a)# Level 6
 url: http://level6-cc4c404a8a8b876167f5e70a7d8c9880.flaws.cloud/ddcc78ff/
 
 <kbd>![image](https://github.com/user-attachments/assets/eb4c364a-c80b-4bb4-8a86-bffb0f17e0cb)</kbd>
@@ -74,10 +74,40 @@ Since the `SecurityAudit policy` lets us see some things about lambdas:
 
 To check this we can issue 
 ```
+
 └─$ aws lambda list-functions --region us-west-2 --profile level6
+{
+    "Functions": [
+        {
+            "FunctionName": "Level6",
+            "FunctionArn": "arn:aws:lambda:us-west-2:975426262029:function:Level6",
+            "Runtime": "python2.7",
+            "Role": "arn:aws:iam::975426262029:role/service-role/Level6",
+            "Handler": "lambda_function.lambda_handler",
+            "CodeSize": 282,
+            "Description": "A starter AWS Lambda function.",
+            "Timeout": 3,
+            "MemorySize": 128,
+            "LastModified": "2017-02-27T00:24:36.054+0000",
+            "CodeSha256": "2iEjBytFbH91PXEMO5R/B9DqOgZ7OG/lqoBNZh5JyFw=",
+            "Version": "$LATEST",
+            "TracingConfig": {
+                "Mode": "PassThrough"
+            },
+            "RevisionId": "d45cc6d9-f172-4634-8d19-39a20951d979",
+            "PackageType": "Zip",
+            "Architectures": [
+                "x86_64"
+            ],
+            "EphemeralStorage": {
+                "Size": 512
+            },
+            "SnapStart": {
+:
+
 ```
 
-So we have a function name called `level6` as well
+So we have a function name called `Level6` 
 
 <kbd>![image](https://github.com/user-attachments/assets/a67289e7-d302-49af-a446-994881066d4a)</kbd>
 
@@ -93,8 +123,52 @@ To get more infromation about the `Level6` function we can use the  lambda's `ge
 ```
 <kbd>![image](https://github.com/user-attachments/assets/dbd4eaa1-7c16-468c-a0e0-5491829f783b)</kbd>
 
-This tells usv we have the ability to execute `arn:aws:execute-api:us-west-2:975426262029:s33ppypa75/*/GET/level6\` 
+This tells us we have the ability to execute `arn:aws:execute-api:us-west-2:975426262029:s33ppypa75/*/GET/level6\` 
 
-That "s33ppypa75" is a rest-api-id, which we can use
+That "s33ppypa75" is a rest-api-id, which we can then use to find the resource name, we are oing to use the `aws apigateway get-stages` command
+
+```
+└─$ aws apigateway get-stages --rest-api-id s33ppypa75 --region us-west-2 --profile level6
+{
+    "item": [
+        {
+            "deploymentId": "8gppiv",
+            "stageName": "Prod",
+            "cacheClusterEnabled": false,
+            "cacheClusterStatus": "NOT_AVAILABLE",
+            "methodSettings": {},
+            "tracingEnabled": false,
+            "createdDate": "2017-02-26T19:26:08-05:00",
+            "lastUpdatedDate": "2017-02-26T19:26:08-05:00"
+        }
+    ]
+}
+
+
+```
+We can see from the results the  `"stageName": "Prod",` 
+
+**Lambda** functions in aws are called using that `rest-api-id`, `stage name`, `region`, and `resource`. 
+
+ Since we already have these 4 requirements, we combine them all together we will have ` https://s33ppypa75.execute-api.us-west-2.amazonaws.com/Prod/level6`
+
+>- `rest-api-id`  = s33ppypa75 (We get from  `aws lambda get-policy` command )
+>- `stage name` = execute-api (We get from  `aws lambda get-policy` command )
+>- `region` = us-west-2 
+>- resource = Prod/level6  (from `aws apigateway get-stages` )
+ 
+
+Then we we go to the url, this is what we see
+
+<kbd>![image](https://github.com/user-attachments/assets/b855e61e-de68-4121-9f6b-170b3d3b5238)</kbd>
+
+
+It tells us to go to `http://theend-797237e8ada164bf9f12cebf93b282cf.flaws.cloud/d730aa2b/`
+
+![image](https://github.com/user-attachments/assets/cefa99cc-f91e-4e78-94bb-0a3e37425492)
+
+
+The end. 
+
 
 
