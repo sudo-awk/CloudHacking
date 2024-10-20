@@ -33,6 +33,12 @@
 
 ### 2.Authentication Methods
 
-![image](https://github.com/user-attachments/assets/d381e0f6-d099-4d84-86fd-219019f1c40c)
+<kbd>![image](https://github.com/user-attachments/assets/d381e0f6-d099-4d84-86fd-219019f1c40c)</kbd>
 
+<kbd>![image](https://github.com/user-attachments/assets/a0a64939-9b02-4d08-8c44-559b3990f6dc)</kbd>
 
+<kbd>![image](https://github.com/user-attachments/assets/46a46906-5dbf-4f98-a482-8d87d2c28214)</kbd>
+
+<kbd>![image](https://github.com/user-attachments/assets/56b65354-efb7-4936-9e2d-6b665424087c)</kbd>
+
+![image](https://github.com/user-attachments/assets/e0c95d3b-7840-411f-ad54-b0189f3dfdf1)
