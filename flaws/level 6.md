@@ -59,11 +59,13 @@ Using the username, this will allow us to request for any attached policies that
 
 Great, we found another security policy called `list_apigateways`, 
 
-We can enumerate this policy using `aws iam get-policy` to find the versionid, and as seen `v4` is our version
+We can enumerate this policy using `aws iam get-policy` to find the `versionid`
 
 <kbd>![image](https://github.com/user-attachments/assets/8df2443b-6c80-47ce-b18a-679ea20f356d)</kbd>
 
-Now that we have the `ARN` and the `version id`, we can now request what the actual policy is by using the `aws get-policy-version` we'll provide it with `policy-arn` and `version-id` we found earlier. 
+Now that we have the `ARN` and the `version id`, we can now request what the actual policy is by using the `aws get-policy-version` 
+
+We'll provide it with `policy-arn` and `version-id` we found earlier. 
 
 ```
 aws iam get-policy-version  --policy-arn arn:aws:iam::975426262029:policy/list_apigateways --version-id v4 --profile level6 
@@ -129,7 +131,7 @@ To get more infromation about the `Level6` function we can use the  lambda's `ge
 
 This tells us we have the ability to execute `arn:aws:execute-api:us-west-2:975426262029:s33ppypa75/*/GET/level6\` 
 
-That "s33ppypa75" is a rest-api-id, which we can then use to find the resource name, we are oing to use the `aws apigateway get-stages` command
+That "s33ppypa75" is a rest-api-id, which we can then use to find the resource name, we are going to use the `aws apigateway get-stages` command from the `rest-api-id` we just found
 
 ```
 └─$ aws apigateway get-stages --rest-api-id s33ppypa75 --region us-west-2 --profile level6
@@ -150,17 +152,20 @@ That "s33ppypa75" is a rest-api-id, which we can then use to find the resource n
 
 
 ```
-We can see from the results the  `"stageName": "Prod",` 
+We can see from the results the  `"stageName": "Prod",` which is great, meaning they are alive and in production. 
 
-**Lambda** functions in aws are called using that `rest-api-id`, `stage name`, `region`, and `resource`. 
+>- **Lambda** functions in aws are called using that `rest-api-id`, `stage name`, `region`, and `resource`.
+>
+>
 
- Since we already have these 4 requirements, we combine them all together we will have ` https://s33ppypa75.execute-api.us-west-2.amazonaws.com/Prod/level6`
 
->- `rest-api-id`  = s33ppypa75 (We get from  `aws lambda get-policy` command )
->- `stage name` = execute-api (We get from  `aws lambda get-policy` command )
+>- `rest-api-id`  = s33ppypa75 (We got  from  `aws lambda get-policy` command )
+>- `stage name` = execute-api (We got from  `aws lambda get-policy` command )
 >- `region` = us-west-2 
 >- resource = Prod/level6  (from `aws apigateway get-stages` )
  
+If we combine them all together we will have ` https://s33ppypa75.execute-api.us-west-2.amazonaws.com/Prod/level6` 
+
 
 Then we we go to the url, this is what we see
 
