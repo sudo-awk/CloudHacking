@@ -1,5 +1,5 @@
-![image](https://github.com/user-attachments/assets/53ab3c26-0ced-47bc-9b21-6aeb652a968a)# Level 6
-url: http://level6-cc4c404a8a8b876167f5e70a7d8c9880.flaws.cloud/ddcc78ff/
+# Level 6
+url: `http://level6-cc4c404a8a8b876167f5e70a7d8c9880.flaws.cloud/ddcc78ff/`
 
 <kbd>![image](https://github.com/user-attachments/assets/eb4c364a-c80b-4bb4-8a86-bffb0f17e0cb)</kbd>
 
@@ -162,8 +162,9 @@ Then we we go to the url, this is what we see
 
 <kbd>![image](https://github.com/user-attachments/assets/b855e61e-de68-4121-9f6b-170b3d3b5238)</kbd>
 
-
 It tells us to go to `http://theend-797237e8ada164bf9f12cebf93b282cf.flaws.cloud/d730aa2b/`
+
+And if go the url 
 
 ![image](https://github.com/user-attachments/assets/cefa99cc-f91e-4e78-94bb-0a3e37425492)
 
