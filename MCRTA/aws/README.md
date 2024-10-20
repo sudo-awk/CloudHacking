@@ -37,6 +37,29 @@
 
 <kbd>![image](https://github.com/user-attachments/assets/a0a64939-9b02-4d08-8c44-559b3990f6dc)</kbd>
 
+
+### 3. AWS Cloud Core Services Enumeration
+
+
+![image](https://github.com/user-attachments/assets/2bd172f4-cfb2-4ee1-8752-996ba4a5e190)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <kbd>![image](https://github.com/user-attachments/assets/46a46906-5dbf-4f98-a482-8d87d2c28214)</kbd>
 
 <kbd>![image](https://github.com/user-attachments/assets/56b65354-efb7-4936-9e2d-6b665424087c)</kbd>
