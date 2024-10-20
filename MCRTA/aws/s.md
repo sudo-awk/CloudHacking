@@ -1,7 +1,7 @@
 # Contains Four modules
 
 ## 1. Introduction to AWS Cloud
-## 2. Authentication Methods
+
 ## 3. CLI Based Enumeration
 ## 4. Red team ops in AWS Cloud
 
@@ -29,3 +29,10 @@
 #### 1.3 Identity and Access Management
 
 <kbd> ![image](https://github.com/user-attachments/assets/a00cda9f-3010-4378-afa4-8d820e14acab) </kbd>
+
+
+### 2.Authentication Methods
+
+![image](https://github.com/user-attachments/assets/d381e0f6-d099-4d84-86fd-219019f1c40c)
+
+
