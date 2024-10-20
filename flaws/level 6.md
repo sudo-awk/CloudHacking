@@ -97,7 +97,7 @@ To check this we can issue `aws lambda list-functions`
 
 ```
 
-So we have a function name called `Level6` , using this `function name` we got we can use this to retrieve `resource` name. 
+So we have a function name called `Level6` , using this `function name`, we can now retrieve `resource` name. 
 
 ```
 ┌──(aaron㉿kali)-[~/flaws/level6]
@@ -108,9 +108,6 @@ So we have a function name called `Level6` , using this `function name` we got w
 }
          
 ```
-
-<kbd>![image](https://github.com/user-attachments/assets/a67289e7-d302-49af-a446-994881066d4a)</kbd>
-
 
 <kbd>![image](https://github.com/user-attachments/assets/dbd4eaa1-7c16-468c-a0e0-5491829f783b)</kbd>
 
